@@ -1,4 +1,5 @@
 <template>
+  <button @click="loading">加载icon</button>
   <div>
     <h1 @click="add">{{ count }}</h1>
   </div>
@@ -11,7 +12,7 @@
         <span :class="{ done: todo.done }">{{ todo.title }}</span>
       </li>
     </ul>
-    <div v-else>暂无数据1333</div>
+    <div v-else>暂无数据</div>
     <div>
       全选 <input type="checkbox" v-model="allDone" />
       <span>{{ active }}/{{ all }}</span>
@@ -26,12 +27,18 @@
 <script setup>
 import { computed, ref } from "vue";
 import { useMouse } from "../utils/mouse";
+import useFavicon from "../utils/useFavicon";
 
 let count = ref(1);
 let color = ref("red");
+let { favicon } = useFavicon();
 function add() {
   count.value++;
   // color.value = Math.random() > 0.5 ? "blue" : "red";
+}
+
+function loading() {
+  favicon.value = "/geek.png";
 }
 
 let { x, y } = useMouse();
