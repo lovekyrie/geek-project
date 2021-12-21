@@ -8,6 +8,8 @@ import HelloWorld from "./components/HelloWorld.vue";
   <div>
     <router-link to="/">首页</router-link>
     <router-link to="/about">关于</router-link>
+    <router-link to="/syntax">语法</router-link>
+    <router-link to="/lifeCycle">生命周期</router-link>
   </div>
   <router-view></router-view>
 </template>
