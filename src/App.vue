@@ -10,6 +10,7 @@ import HelloWorld from "./components/HelloWorld.vue";
     <router-link to="/about">关于</router-link>
     <router-link to="/syntax">语法</router-link>
     <router-link to="/lifeCycle">生命周期</router-link>
+    <router-link to="/count">自定义hook</router-link>
   </div>
   <router-view></router-view>
 </template>

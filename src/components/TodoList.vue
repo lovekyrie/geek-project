@@ -26,7 +26,7 @@
 
 <script setup>
 import { computed, ref } from "vue";
-import { useMouse } from "../utils/mouse";
+// import { useMouse } from "../utils/mouse";
 import useFavicon from "../utils/useFavicon";
 
 let count = ref(1);
@@ -41,7 +41,7 @@ function loading() {
   favicon.value = "/geek.png";
 }
 
-let { x, y } = useMouse();
+// let { x, y } = useMouse();
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos();
 </script>
 <script>

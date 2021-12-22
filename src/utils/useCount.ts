@@ -18,9 +18,7 @@ export function useCount(initValue = 1): CountResultProps {
     }
   };
 
-  const multiple = computed(() => {
-    count.value * 2;
-  });
+  const multiple = computed(() => count.value * 2);
 
   const decrease = (delta?: number): void => {
     if (typeof delta !== "undefined") {

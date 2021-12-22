@@ -1,29 +1,30 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../pages/home.vue";
-import About from "../pages/about.vue";
-import Syntax from "../pages/syntax.vue";
-import LifeCycle from "../pages/lifeCycle.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("../pages/home.vue"),
   },
   {
     path: "/about",
     name: "About",
-    component: About,
+    component: () => import("../pages/about.vue"),
   },
   {
     path: "/syntax",
     name: "Syntax",
-    component: Syntax,
+    component: () => import("../pages/syntax.vue"),
   },
   {
     path: "/lifeCycle",
     name: "LifeCycle",
-    component: LifeCycle,
+    component: () => import("../pages/lifeCycle.vue"),
+  },
+  {
+    path: "/count",
+    name: "Count",
+    component: () => import("../pages/count.vue"),
   },
 ];
 
