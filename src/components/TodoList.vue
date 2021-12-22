@@ -4,12 +4,18 @@
     <h1 @click="add">{{ count }}</h1>
   </div>
   <div>
-    <input type="text" v-model="title" @keydown.enter="addTodo" />
+    <input type="text" v-model="title" @keydown.enter="addTodo1" />
     <button v-if="active < all" @click="clear">清理</button>
     <ul v-if="todos.length">
       <li v-for="(todo, index) in todos" :key="index">
-        <input type="checkbox" v-model="todo.done" />
-        <span :class="{ done: todo.done }">{{ todo.title }}</span>
+        <!-- <input type="checkbox" v-model="todo.done" /> -->
+        <p
+          @click="updateStatus(index, !todo.done)"
+          :class="{ done: todo.done }"
+        >
+          {{ todo.title }}
+        </p>
+        <div class="item-delete" @click="deleteTodo(index)">X</div>
       </li>
     </ul>
     <div v-else>暂无数据</div>
@@ -42,13 +48,28 @@ function loading() {
 }
 
 // let { x, y } = useMouse();
-let { title, todos, addTodo, clear, active, all, allDone } = useTodos();
+let {
+  title,
+  todos,
+  addTodo,
+  addTodo1,
+  updateStatus,
+  deleteTodo,
+  clear,
+  active,
+  all,
+  allDone,
+} = useTodos();
 </script>
 <script>
-import { useStorage } from "../utils/useStorage";
+//import { useStorage } from "../utils/useStorage";
+import { useStore } from "vuex";
 function useTodos() {
   let title = ref("");
-  let todos = useStorage("todos", []);
+  // let todos = useStorage("todos", []);
+  //使用hook的方式，拿到store仓库
+  const store = useStore();
+  const todos = computed(() => store.state.taskList);
 
   function addTodo() {
     todos.value.push({
@@ -57,6 +78,29 @@ function useTodos() {
     });
     title.value = "";
   }
+
+  const addTodo1 = () => {
+    store.commit("createTodo", {
+      title: title.value,
+      done: false,
+    });
+    title.value = "";
+  };
+
+  const updateStatus = (index, status) => {
+    debugger;
+    store.commit("updateStatus", {
+      index,
+      status,
+    });
+  };
+
+  const deleteTodo = (index) => {
+    store.commit("deleteTodo", {
+      index,
+    });
+  };
+
   function clear() {
     todos.value = todos.value.filter((todo) => !todo.done);
   }
@@ -74,11 +118,32 @@ function useTodos() {
       });
     },
   });
-  return { title, todos, addTodo, clear, active, all, allDone };
+  return {
+    title,
+    todos,
+    addTodo,
+    addTodo1,
+    updateStatus,
+    deleteTodo,
+    clear,
+    active,
+    all,
+    allDone,
+  };
 }
 </script>
 <style scoped>
 h1 {
   color: red;
+}
+.done {
+  text-decoration: line-through;
+  color: #999;
+}
+.item-delete {
+  float: right;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
 }
 </style>
