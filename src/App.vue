@@ -5,7 +5,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <div>
+  <div id="nav">
     <router-link to="/">首页</router-link>
     <router-link to="/about">关于</router-link>
     <router-link to="/syntax">语法</router-link>
@@ -15,7 +15,7 @@ import HelloWorld from "./components/HelloWorld.vue";
   <router-view></router-view>
 </template>
 
-<style>
+<style lang='scss'>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

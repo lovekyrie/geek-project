@@ -1,5 +1,6 @@
 <template>
   <div :style="fontStyle">
+    <slot></slot>
     <div class="rate" @mouseout="mouseOut">
       <span @mouseover="mouseOver(num)" v-for="num in 5" :key="num">☆</span>
       <!-- 用来覆盖 -->
@@ -18,18 +19,18 @@
 <script setup>
 import { defineProps, computed, ref } from "vue";
 let props = defineProps({
-  value: Number,
+  modelValue: Number,
   theme: { type: String, default: "orange" },
 });
 let rate = computed(() =>
-  "★★★★★☆☆☆☆☆".slice(5 - props.value, 10 - props.value)
+  "★★★★★☆☆☆☆☆".slice(5 - props.modelValue, 10 - props.modelValue)
 );
-let width = ref(props.value);
+let width = ref(props.modelValue);
 function mouseOver(i) {
   width.value = i;
 }
 function mouseOut() {
-  width.value = props.value;
+  width.value = props.modelValue;
 }
 //em针对父元素
 const fontwidth = computed(() => `width:${width.value}em;`);
@@ -48,19 +49,15 @@ const fontStyle = computed(() => {
 });
 
 //defineEmits不需要导入
-let emits = defineEmits("[update-rate]");
+let emits = defineEmits(["update:modelValue"]);
 function onRate(num) {
-  emits("update-rate", num);
+  emits("update:modelValue", num);
 }
 </script>
 <style lang="scss" scoped>
 .rate {
   position: relative;
   display: inline-block;
-  span {
-    display: inline-block;
-    width: 14px;
-  }
   > span.hollow {
     position: absolute;
     display: inline-block;

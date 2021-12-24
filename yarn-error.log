@@ -1,0 +1,54 @@
+Arguments: 
+  /Users/duanyupeng/.nvm/versions/node/v12.22.8/bin/node /Users/duanyupeng/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/duanyupeng/.yarn/bin:/Users/duanyupeng/.config/yarn/global/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/duanyupeng/.nvm/versions/node/v12.22.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  12.22.8
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: read ECONNRESET
+      at TLSWrap.onStreamRead (internal/stream_base_commons.js:209:20)
+
+npm manifest: 
+  {
+    "name": "difu",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "serve": "vite preview"
+    },
+    "dependencies": {
+      "@vitejs/plugin-vue-jsx": "^1.2.0",
+      "@vueuse/core": "^6.5.3",
+      "element3": "^0.0.40",
+      "vue": "^3.2.13",
+      "vue-router": "^4.0.11",
+      "vuex": "^4.0.2"
+    },
+    "devDependencies": {
+      "@types/node": "^17.0.2",
+      "@vitejs/plugin-vue": "^1.9.0",
+      "eslint": "^8.2.0",
+      "eslint-plugin-vue": "^8.0.3",
+      "install": "^0.13.0",
+      "npm": "^8.1.3",
+      "sass": "^1.45.1",
+      "sass-loader": "^12.4.0",
+      "vite": "^2.5.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
