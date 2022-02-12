@@ -6,7 +6,7 @@
     <button @click="decrease()">减1</button>
   </div>
 </template>
-<script setup lang='ts'>
+<script setup lang="ts">
 import { useCount } from "../utils/useCount.ts";
 const { count, multiple, increase, decrease } = useCount(10);
 </script>

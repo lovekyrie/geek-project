@@ -1,5 +1,5 @@
-#app{
-  font-family: JetBrains Mono,Avenir,Arial, Helvetica, sans-serif;
+#app {
+  font-family: JetBrains Mono, Avenir, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -9,11 +9,11 @@
   padding: 30px;
   display: flex;
   flex-flow: row wrap;
-  a{
+  a {
     flex: 1 0 100%;
     font-weight: bold;
     color: #2c3e50;
-    &.router-link-exact-active{
+    &.router-link-exact-active {
       color: #42b983;
     }
   }

@@ -37,10 +37,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from "vue";
 // import { useMouse } from "../utils/mouse";
 import useFavicon from "../utils/useFavicon";
+import Task from "../model/task";
 
 let count = ref(1);
 let color = ref("red");
@@ -77,7 +78,7 @@ function useTodos() {
   // let todos = useStorage("todos", []);
   //使用hook的方式，拿到store仓库
   const store = useStore();
-  const todos = computed(() => store.state.taskList);
+  const todos = computed<Task[]>(() => store.state.taskList);
 
   function addTodo() {
     todos.value.push({
@@ -103,32 +104,33 @@ function useTodos() {
     title.value = "";
   };
 
-  const updateStatus = (index, status) => {
+  const updateStatus = (index: number, done: boolean) => {
     store.commit("updateStatus", {
       index,
-      status,
+      done,
     });
   };
 
-  const deleteTodo = (index) => {
+  const deleteTodo = (index: number) => {
     store.commit("deleteTodo", {
       index,
     });
   };
 
   function clear() {
-    todos.value = todos.value.filter((todo) => !todo.done);
+      //用vuex去更新
+    // todos.value = todos.value.filter((todo: Task) => !todo.done);
   }
   let active = computed(() => {
-    return todos.value.filter((todo) => !todo.done).length;
+    return todos.value.filter((todo: Task) => !todo.done).length;
   });
   let all = computed(() => todos.value.length);
   let allDone = computed({
     get() {
       return active.value === 0; //未完成事件为0
     },
-    set(value) {
-      todos.value.forEach((todo) => {
+    set(value: boolean) {
+      todos.value.forEach((todo: Task) => {
         todo.done = value;
       });
     },
@@ -137,7 +139,7 @@ function useTodos() {
     showModal,
     title,
     todos,
-    addTodo,
+     addTodo,
     addTodo1,
     updateStatus,
     deleteTodo,
@@ -148,7 +150,7 @@ function useTodos() {
   };
 }
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .container {
   position: relative;
   ul {
