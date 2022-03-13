@@ -1,4 +1,4 @@
-import { createStore } from "vuex";
+import { defineStore } from "pinia";
 import Task from "../model/task";
 //ts中接口数据
 interface State {
@@ -11,24 +11,26 @@ let state: State = {
   taskList: [],
 };
 
-export default createStore({
-  state,
-  mutations: {
-    createTodo(state: any, newTask: Task) {
-      state.taskList.push(newTask);
+export const useTodoStore = defineStore("todo", {
+  state: () => {
+    return state;
+  },
+  actions: {
+    createTodo(taskList: Task[], newTask: Task) {
+      taskList.push(newTask);
     },
     //接受state,payload
-    updateStatus(state: any, payload: any) {
+    updateStatus(state: State, payload: any) {
       //解构index,status
       const { index, done } = payload;
       //修改列表项的状态
       state.taskList[index].done = done;
     },
     //删除任务方法
-    deleteTodo(state, payload: any) {
+    deleteTodo(taskList: Task[], payload: any) {
       const { index } = payload;
       //将对应的数据删除即可
-      state.taskList.splice(index, 1);
+      taskList.splice(index, 1);
     },
   },
 });

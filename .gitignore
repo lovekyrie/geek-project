@@ -1,8 +1,9 @@
-node_modules
+node_modules/
 .DS_Store
-dist
+dist/
 dist-ssr
 *.local
 *.lock
 *.log
 package-lock.json
+*.yaml

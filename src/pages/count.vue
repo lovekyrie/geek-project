@@ -7,6 +7,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useCount } from "../utils/useCount.ts";
+import { useCount } from "../utils/useCount";
 const { count, multiple, increase, decrease } = useCount(10);
 </script>
