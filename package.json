@@ -6,7 +6,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --fix --ext .ts,.tsx,.vue,.js,.jsx",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --config ./.prettierrc.js --write ."
   },
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^1.2.0",

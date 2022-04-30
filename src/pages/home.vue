@@ -3,5 +3,5 @@
   <TodoListPinia />
 </template>
 <script setup>
-import TodoListPinia from "../components/TodoListPinia.vue";
+import TodoListPinia from '../components/TodoListPinia.vue'
 </script>

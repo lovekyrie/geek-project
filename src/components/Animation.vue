@@ -8,15 +8,15 @@
   </transition>
 </template>
 <script setup>
-import { ref } from "vue";
-let width = ref(100);
+import { ref } from 'vue'
+let width = ref(100)
 function change() {
-  width.value += 100;
+  width.value += 100
 }
 
-let showTitle = ref(true);
+let showTitle = ref(true)
 function toggle() {
-  showTitle.value = !showTitle.value;
+  showTitle.value = !showTitle.value
 }
 </script>
 <style lang="scss">
