@@ -1,7 +1,7 @@
 <template>
   <div class="todo-list-pinia">
     <p>{{ userName }}</p>
-    <el-form :model="form" label-position="right" label-witdh="100px" style="max-width: 460px" ref="ruleFormRef" :rules="rules">
+    <el-form ref="ruleFormRef" :model="form" label-position="right" label-witdh="100px" style="max-width: 460px" :rules="rules">
       <el-form-item label="Activity name" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
@@ -12,7 +12,7 @@
     </el-form>
     <!-- 展示todo list -->
     <ul v-if="taskList.length > 0">
-      <li class="task-item" v-for="(task, index) in taskList" :key="index">
+      <li v-for="(task, index) in taskList" :key="index" class="task-item">
         <el-checkbox v-model="task.done">{{ task.title }}</el-checkbox>
         <div class="item-delete" @click="deleteTodo(index)">X</div>
       </li>
@@ -43,7 +43,9 @@ const rules = reactive({
 
 // 新增todo
 const onSubmit = async (formEl: FormInstance | undefined) => {
-  if (!formEl) return
+  if (!formEl) {
+    return
+  }
   await formEl.validate((valid, fields) => {
     if (valid) {
       // pinia has not mutations

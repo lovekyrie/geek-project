@@ -11,6 +11,7 @@
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^1.2.0",
     "@vueuse/core": "^6.5.3",
+    "axios": "^0.27.2",
     "element-plus": "^2.1.0",
     "eslint-config-prettier": "^8.3.0",
     "pinia": "^2.0.11",

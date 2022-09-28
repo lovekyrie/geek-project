@@ -9,10 +9,10 @@
   <Animation></Animation>
 </template>
 <script setup>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import Rate from '../components/Rate.vue'
 import Animation from '../components/Animation.vue'
-let score = ref(0)
+const score = ref(0)
 // function update(num) {
 //   score.value = num;
 // }

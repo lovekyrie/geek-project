@@ -4,12 +4,6 @@
 <script>
 import { onBeforeMount, onMounted, onRenderTriggered } from 'vue'
 export default {
-  beforeCreate() {
-    console.log('------beforeCreate-----')
-  },
-  created() {
-    console.log('------created-----')
-  },
   setup() {
     console.log('------setup-----')
     onBeforeMount(() => {
@@ -21,6 +15,12 @@ export default {
     onRenderTriggered((event) => {
       console.log('------onMounted-----', event)
     })
+  },
+  beforeCreate() {
+    console.log('------beforeCreate-----')
+  },
+  created() {
+    console.log('------created-----')
   },
 }
 </script>
