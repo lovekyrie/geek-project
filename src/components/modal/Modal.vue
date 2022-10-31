@@ -1,29 +1,30 @@
 <template>
-  <div class="modal" v-if="props.visible">
+  <div v-if="props.modelValue" class="modal" @click="onCancel">
     <div class="modal-content">
       <div class="modal-header">{{ props.title }}</div>
-      <div class="modal-body">{{ props.content }}</div>
-      <div class="modal-footer">
-        <button @click="onCancel">取消</button>
-        <button @click="onOk">确定</button>
+      <div class="modal-body">
+        <div>{{ props.content }}</div>
+        <slot></slot>
       </div>
+      <Footer />
     </div>
   </div>
 </template>
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import Footer from './Footer.vue'
 const props = defineProps({
   title: { type: String, default: '' },
   content: { type: String, default: '' },
-  visible: {
+  modelValue: {
     type: Boolean,
     default: false,
   },
 })
 
-const emit = defineEmits(['handleCancel', 'handleOk'])
+const emit = defineEmits(['update:modelValue', 'handleCancel', 'handleOk'])
 const onCancel = () => {
-  emit('handleCancel', false)
+  // emit('handleCancel', false)
+  emit('update:modelValue', false)
 }
 const onOk = () => {
   emit('handleOk', false)
