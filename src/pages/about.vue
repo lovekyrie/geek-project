@@ -9,7 +9,7 @@
   <Animation></Animation>
 </template>
 <script setup>
-// import { ref } from 'vue'
+import { ref } from 'vue'
 import Rate from '../components/Rate.vue'
 import Animation from '../components/Animation.vue'
 const score = ref(0)

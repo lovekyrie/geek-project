@@ -1,6 +1,6 @@
 <template>
   <div v-if="props.modelValue" class="modal" @click="onCancel">
-    <div class="modal-content">
+    <div class="modal-content" @click="clickStop">
       <div class="modal-header">{{ props.title }}</div>
       <div class="modal-body">
         <div>{{ props.content }}</div>
@@ -28,6 +28,10 @@ const onCancel = () => {
 }
 const onOk = () => {
   emit('handleOk', false)
+}
+
+const clickStop = (e) => {
+  e.stopPropagation()
 }
 </script>
 <style lang="scss" scoped>
