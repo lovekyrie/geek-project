@@ -6,18 +6,25 @@
         <div>{{ props.content }}</div>
         <slot></slot>
       </div>
-      <Footer />
+      <div class="modal-footer">
+        <button v-if="type === 'confirm'" @click="onCancel">取消</button>
+        <button @click="onOk">确定</button>
+      </div>
     </div>
   </div>
 </template>
 <script setup>
-import Footer from './Footer.vue'
+// import Footer from './Footer.vue'
 const props = defineProps({
   title: { type: String, default: '' },
   content: { type: String, default: '' },
   modelValue: {
     type: Boolean,
     default: false,
+  },
+  close: {
+    type: Function,
+    default: () => {},
   },
 })
 
@@ -27,7 +34,7 @@ const onCancel = () => {
   emit('update:modelValue', false)
 }
 const onOk = () => {
-  emit('handleOk', false)
+  props.close()
 }
 
 const clickStop = (e) => {

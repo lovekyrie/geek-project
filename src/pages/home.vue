@@ -1,14 +1,14 @@
 <template>
   <h1>这是首页11</h1>
   <TodoListPinia />
-  <Modal title="信息提示" content="打开了一个弹窗" v-model="modalVisible" @update:modelValue="modalVisible = $event" @handleOk="onOk">
+  <EasyModal title="信息提示" content="打开了一个弹窗" v-model="modalVisible" @update:modelValue="modalVisible = $event" @handleOk="onOk">
     <form>
       <label for="">姓名</label>
       <input v-model="name" placeholder="请输入姓名" />
       <label for="">年龄</label>
       <input v-model="age" placeholder="请输入年龄" />
     </form>
-  </Modal>
+  </EasyModal>
   <button @click="openModal">打开弹窗</button>
 </template>
 <script setup>
