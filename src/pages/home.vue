@@ -13,7 +13,7 @@
 </template>
 <script setup>
 import TodoListPinia from '../components/TodoListPinia.vue'
-import Modal from '../components/modal/Modal.vue'
+// import Modal from '../components/modal/Modal.vue'
 
 import { ref, provide } from 'vue'
 const modalVisible = ref(false)

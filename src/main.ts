@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import Modal from './components/modal/Modal.vue'
 
 import './index.scss'
 import router from './router' //声明带后缀，应用也要带后缀，保持统一
 import { createPinia } from 'pinia'
-createApp(App).use(router).use(createPinia()).mount('#app')
+
+createApp(App).component('Modal', Modal).use(router).use(createPinia()).mount('#app')
