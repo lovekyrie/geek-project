@@ -12,11 +12,13 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     Footer: typeof import('./src/components/modal/Footer.vue')['default']
+    GeekTransition: typeof import('./src/components/GeekTransition.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Modal: typeof import('./src/components/modal/Modal.vue')['default']
     Rate: typeof import('./src/components/Rate.vue')['default']
     TodoList: typeof import('./src/components/TodoList.vue')['default']
     TodoListPinia: typeof import('./src/components/TodoListPinia.vue')['default']
+    Transition: typeof import('./src/components/Transition.vue')['default']
   }
 }
 

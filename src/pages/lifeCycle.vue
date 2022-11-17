@@ -1,9 +1,11 @@
 <template>
   <div>生命周期演示</div>
   <button @click="open">打开弹窗</button>
+  <GeekTransition />
 </template>
 <script>
 import { onBeforeMount, onMounted, onRenderTriggered, inject } from 'vue'
+import GeekTransition from '../components/GeekTransition.vue'
 // import { openModal } from '../components/modal'
 export default {
   setup() {
